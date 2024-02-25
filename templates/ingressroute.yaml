@@ -5,6 +5,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: {{ include "cmconstructor.fullname" $root }}
+  namespace: {{ .Values.namespace }}
 spec:
   entryPoints:
     {{- range .Values.ingressRoute.entryPoints }}
