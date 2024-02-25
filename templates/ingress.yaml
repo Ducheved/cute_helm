@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "cmconstructor.fullname" . }}
+  name: {{ default .Chart.Name .Values.fullnameOverride }}
   namespace: {{ .Values.namespace }}
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "meow.lemon"
+  - host: {{ .Values.host }}
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: {{ include "cmconstructor.fullname" . }}
+            name: {{ default .Chart.Name .Values.fullnameOverride }}
             port:
               number: {{ .Values.service.port }}
   tls:
   - hosts:
-    - "meow.lemon"
-    secretName: {{ include "cmconstructor.fullname" . }}-tls
+    - {{ .Values.host }}
+    secretName: {{ default .Chart.Name .Values.fullnameOverride }}-tls

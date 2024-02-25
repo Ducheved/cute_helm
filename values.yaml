@@ -1,5 +1,6 @@
 fullnameOverride: ""
 replicaCount: 1
+host: "meow.lemon"
 namespace: default
 image:
   repository: ducheved/cmconstructor
