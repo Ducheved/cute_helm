@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ include "cmconstructor.fullname" . }}
+  namespace: {{ .Values.namespace }}
+rules:
+- apiGroups: ["", "extensions", "apps", "traefik.containo.us"]
+  resources: ["*"]
+  verbs: ["*"]
