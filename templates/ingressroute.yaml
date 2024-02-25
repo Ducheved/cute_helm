@@ -14,7 +14,7 @@ spec:
       match: {{ .match }}
       priority: {{ .priority }}
       services:
-        - name: {{ $fullName }}
+        - name: {{ include "cmconstructor.fullname" . }}
           port: {{ .services[0].port }}
     {{- end }}
 {{- end }}
