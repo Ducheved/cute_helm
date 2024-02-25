@@ -1,0 +1,20 @@
+{{- if .Values.ingressRoute.enabled -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: {{ include "cmconstructor.fullname" . }}
+spec:
+  entryPoints:
+    {{- range .Values.ingressRoute.entryPoints }}
+    - {{ . }}
+    {{- end }}
+  routes:
+    {{- range .Values.ingressRoute.routes }}
+    - kind: Rule
+      match: {{ .match }}
+      priority: {{ .priority }}
+      services:
+        - name: {{ $fullName }}
+          port: {{ .services[0].port }}
+    {{- end }}
+{{- end }}

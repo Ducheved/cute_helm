@@ -1,0 +1,19 @@
+replicaCount: 1
+image:
+  repository: ducheved/cmconstructor
+  pullPolicy: IfNotPresent
+  tag: "under"
+service:
+  type: LoadBalancer
+  port: 39531
+  targetPort: 3000
+ingressRoute:
+  enabled: true
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`meow.lemon`)
+      priority: 10
+      services:
+        - port: 80
+resources: {}
