@@ -1,3 +1,5 @@
+# values.yaml
+fullnameOverride: ""
 replicaCount: 1
 image:
   repository: ducheved/cmconstructor
