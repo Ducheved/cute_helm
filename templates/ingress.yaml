@@ -7,7 +7,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
 spec:
   rules:
-  - host: "meow.lemon"
+  - {{ .Values.host }}
     http:
       paths:
       - pathType: Prefix
@@ -19,5 +19,5 @@ spec:
               number: {{ .Values.service.port }}
   tls:
   - hosts:
-    - "meow.lemon"
+    - {{ .Values.host }}
     secretName: {{ include "cmconstructor.fullname" . }}-tls
