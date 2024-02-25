@@ -12,6 +12,8 @@ service:
   targetPort: 3000
 ingressRoute:
   enabled: true
+  tls:
+    certResolver: default
   entryPoints:
     - websecure
   routes:
@@ -19,4 +21,5 @@ ingressRoute:
       priority: 10
       services:
         - port: 80
+          scheme: h2c
 resources: {}

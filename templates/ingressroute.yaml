@@ -20,6 +20,13 @@ spec:
         {{- range .services }}
         - name: {{ include "cmconstructor.fullname" $root }}
           port: {{ .port }}
+          {{- if .scheme }}
+          scheme: {{ .scheme }}
+          {{- end }}
         {{- end }}
     {{- end }}
+  {{- if .Values.ingressRoute.tls }}
+  tls:
+    certResolver: {{ .Values.ingressRoute.tls.certResolver }}
+  {{- end }}
 {{- end }}
