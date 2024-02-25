@@ -1,6 +1,6 @@
-# ingressroute.yaml
 {{- $root := . -}}
 {{- if .Values.ingressRoute.enabled -}}
+
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
