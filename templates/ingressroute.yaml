@@ -1,8 +1,10 @@
+# ingressroute.yaml
+{{- $root := . -}}
 {{- if .Values.ingressRoute.enabled -}}
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
-  name: {{ include "cmconstructor.fullname" . }}
+  name: {{ include "cmconstructor.fullname" $root }}
 spec:
   entryPoints:
     {{- range .Values.ingressRoute.entryPoints }}
@@ -14,7 +16,7 @@ spec:
       match: {{ .match }}
       priority: {{ .priority }}
       services:
-        - name: {{ include "cmconstructor.fullname" . }}
+        - name: {{ include "cmconstructor.fullname" $root }}
           port: {{ .services.port }}
     {{- end }}
-{{- end }} 
+{{- end }}
