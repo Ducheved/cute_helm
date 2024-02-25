@@ -29,11 +29,4 @@ The following table lists the configurable parameters of the Cute Helm chart and
 | `service.type`          | Sets the Kubernetes Service type                | `LoadBalancer`                 |
 | `service.port`          | Sets the Service port                           | `39531`                        |
 | `service.targetPort`    | Sets the target port of the application         | `3000`                         |
-| `ingressRoute.enabled`  | Enables the ingress route                       | `true`                         |
-| `ingressRoute.tls.certResolver` | Sets the cert resolver for the ingress route | `default`                   |
-| `ingressRoute.entryPoints` | Sets the entry points for the ingress route  | `["websecure"]`                |
-| `ingressRoute.routes.match` | Sets the match rule for the ingress route   | `Host(`meow.lemon`)`           |
-| `ingressRoute.routes.priority` | Sets the priority for the ingress route  | `10`                           |
-| `ingressRoute.routes.services.port` | Sets the Service port for the ingress route | `80`                      |
-| `ingressRoute.routes.services.scheme` | Sets the scheme for the ingress route | `h2c`                       |
 | `resources`             | Sets the CPU/Memory resource requests/limits    | `{}`                           |

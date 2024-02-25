@@ -10,16 +10,16 @@ service:
   type: LoadBalancer
   port: 39531
   targetPort: 3000
-ingressRoute:
-  enabled: true
-  tls:
-    certResolver: default
-  entryPoints:
-    - websecure
-  routes:
-    - match: Host(`meow.lemon`)
-      priority: 10
-      services:
-        - port: 80
-          scheme: h2c
+# ingressRoute:
+#   enabled: true
+#   tls:
+#     certResolver: default
+#   entryPoints:
+#     - websecure
+#   routes:
+#     - match: Host(`meow.lemon`)
+#       priority: 10
+#       services:
+#         - port: 80
+#           scheme: h2c
 resources: {}
